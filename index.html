@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="miniquery.js"></script>
+</head>
+<body>
+    <div id="eyed">Eyed</div>
+    <div class="btn">Btn</div>
+    <a href="google.com">google</a>
+</body>
+<script>
+      console.log("id", SweetSelector.select('#eyed'))
+      console.log("class", SweetSelector.select('.btn'))
+      console.log("tag", SweetSelector.select('a'))
+
+      DOM.hide('.btn')
+      DOM.show('.btn')
+      DOM.addClass('.btn','shadi')
+      DOM.removeClass('.btn','shadi')
+
+      EventDispatcher.on('.btn','click', function(){console.log("awesome")})
+      EventDispatcher.trigger('.btn','click')
+
+
+      AjaxWrapper.request({
+        url: 'http://localhost:3000',
+        type: 'GET',
+        success: function(data) {
+          console.log("Success: ", data)
+        },
+        fail: function() {
+          console.log("ERROR")
+        }
+      })
+
+
+</script>
+</html>
